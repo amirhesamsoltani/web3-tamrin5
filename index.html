@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class human{
+            constructor(fname,lname,age){
+                this.fname = fname;
+                this.lname = lname;
+                this.age = age;
+            }
+            displayInfo(){
+                console.log(`the name is ${this.fname} and his last name is ${this.lname} and he is ${this.age} years old.`);
+            }
+        }
+        class student extends human{
+            constructor(fname,lname,age,grade,score){
+                super(fname,lname,age);
+                this.grade = grade;
+                this.score = score;
+            }
+            displayGrade = function(){
+                console.log(`he is in ${this.grade} grade and he got ${this.score} in final exam.`);
+            }
+        }
+        let std1 = new student("AMIRHESAM","soltani",16,11,19.92);
+        console.log(std1.displayInfo());
+    </script>
+</body>
+</html>

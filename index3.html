@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         table{
+            width: 100%;
+        }
+         tr, th, td{
+            border: 1px solid red;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="firstname" id="fname">
+    <input type="text" placeholder="lastname" id="lname">
+    <button onclick="pushInfo()">submit</button>
+    <input type="text" placeholder="add a number" id="delete-number">
+    <button onclick="deleteUser()">submit</button>
+    <table>
+        <thead>
+            <tr>
+                <th>NO.</th>
+                <th>first name</th>
+                <th>last name</th>
+            </tr>
+        </thead>
+        <tbody id="add-to-table">
+            
+        </tbody>
+    </table>
+    <script>
+        let stds =[];
+        let insertToTable =function(){
+            let table = document.getElementById("add-to-table");
+            table.innerHTML="";
+            stds.forEach(function(value,index){
+                table.innerHTML += `<tr><td>${index+1}</td><td>${value.firstname}</td><td>${value.lastname}</td></tr>`;
+            });
+        }
+        let pushInfo = function(){
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            stds.push({firstname:fname , lastname:lname});
+            insertToTable();
+        }
+        function deleteUser(){
+            let number = Number(document.getElementById("delete-number").value);
+            stds.splice(number - 1,1);
+            insertToTable();
+        }
+        
+    </script>
+</body>
+</html>

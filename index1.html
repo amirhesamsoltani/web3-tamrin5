@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class human{
+            constructor(age){
+                this.age = age;
+            }
+            set age(value){
+                if (value<0) this._age = 0;
+                else if (value>100) this._age = 100;
+                else this._age = value;
+            }
+            get age(){
+                return this._age;
+            }
+        }
+        let human1 = new human(-9);
+        console.log(human1.age);
+    </script>
+</body>
+</html>
